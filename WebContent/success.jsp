@@ -39,7 +39,7 @@
 					<td>${emp.gender == 0 ? "MALE" : "FEMALE" }</td>
 					<td>${emp.dept.deptName }</td>
 					<td>
-						<a href="emp/${emp.id }">DELETE</a>
+						<a href="emp/${emp.id }">DELETE</a> &nbsp&nbsp 
 						<a href="input/${emp.id }">UPDATE</a>
 					</td>
 				</tr>
