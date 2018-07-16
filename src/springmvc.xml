@@ -29,4 +29,9 @@
 	
 	<!-- 数据验证配置,springmvc会默认注册 -->
 	<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"></bean> -->
+	
+	<!-- 配置国际化资源 -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="abc"></property>
+	</bean>
 </beans>
