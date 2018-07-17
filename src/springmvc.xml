@@ -34,4 +34,18 @@
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="abc"></property>
 	</bean>
+	
+	<!-- 自定义拦截器 -->
+	<mvc:interceptors>
+		<!-- mvc:interceptor是一个拦截的声明，通过mvc:mapping指定配置的拦截器所要拦截的资源 -->
+		<mvc:interceptor>
+			<!-- 拦截的请求路径 -->
+			<mvc:mapping path="/toFormat"/>
+			<bean id="myInterceptor" class="com.ph.interceptor.MyInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!-- 自定义拦截器拦截所有请求 -->
+	<!-- <mvc:interceptors>
+		<bean id="myInterceptor" class="com.ph.interceptor.MyInterceptor"></bean>
+	</mvc:interceptors> -->
 </beans>
