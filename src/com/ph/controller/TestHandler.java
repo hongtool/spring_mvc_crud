@@ -10,9 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.support.RequestContext;
 
+import com.ph.POJO.Person;
 import com.ph.POJO.User;
 
 @Controller
@@ -59,5 +63,16 @@ public class TestHandler {
 		String message = context.getMessage("user.name");
 		System.out.println(message);
 		return "success";
+	}
+	
+//	@RequestMapping("testRequestBody")
+//	public void testRequestBody(@RequestBody List<Person> persons) {
+//		System.out.println(persons);
+//	}
+	@ResponseBody
+	@RequestMapping("testRequestBody")
+	public List<Person> testRequestBody(@RequestBody List<Person> persons) {
+		System.out.println(persons);
+		return persons;
 	}
 }
