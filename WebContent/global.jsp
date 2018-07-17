@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,12 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="testConversionService">
-		<!-- NAME:<input type="text" name="name" /><br />
-		AFE:<input type="text" name="age" /><br /> -->
-		User:<input type="text" name="user" /><br />
-		<input type="submit" value="SUBMIT" /><br />
-	</form>
-	<a href="testGlobal">Test Global</a>
+	<a href="globalA?locale=zh_CN">中文</a>
+	<a href="globalA?locale=en_US">English</a>
+	<fmt:message key="header"></fmt:message>
 </body>
 </html>

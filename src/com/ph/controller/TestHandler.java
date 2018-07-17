@@ -3,6 +3,7 @@ package com.ph.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.support.RequestContext;
 
 import com.ph.POJO.User;
 
@@ -49,5 +51,13 @@ public class TestHandler {
 	public String toFormat(Map<String, Object> map) {
 		map.put("user", new User());
 		return "format";
+	}
+	
+	@RequestMapping("/testGlobal")
+	public String testGlobal(HttpServletRequest request) {
+		RequestContext context = new RequestContext(request);
+		String message = context.getMessage("user.name");
+		System.out.println(message);
+		return "success";
 	}
 }

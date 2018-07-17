@@ -30,6 +30,8 @@
 	<!-- 数据验证配置,springmvc会默认注册 -->
 	<!-- <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"></bean> -->
 	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+	
 	<!-- 配置国际化资源 -->
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="abc"></property>
@@ -37,6 +39,7 @@
 	
 	<!-- 自定义拦截器 -->
 	<mvc:interceptors>
+		<bean id="localeChangeIntercepter" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
 		<!-- mvc:interceptor是一个拦截的声明，通过mvc:mapping指定配置的拦截器所要拦截的资源 -->
 		<mvc:interceptor>
 			<!-- 拦截的请求路径 -->
@@ -48,4 +51,6 @@
 	<!-- <mvc:interceptors>
 		<bean id="myInterceptor" class="com.ph.interceptor.MyInterceptor"></bean>
 	</mvc:interceptors> -->
+	
+	<mvc:view-controller path="/globalA" view-name="global" />
 </beans>
